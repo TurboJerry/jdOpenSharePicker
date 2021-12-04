@@ -182,7 +182,7 @@ async function mr() {
       await $.wait(20000);
       //兑换
       client.send(`{"msg":{"type":"action","args":{},"action":"get_benefit"}}`)
-      await $.wait(20000);
+      await $.wait(50000);
       //最后做时间最久的日常任务
       client.send(`{"msg":{"type":"action","args":{},"action":"shop_products"}}`)
       await $.wait(20000);
@@ -493,9 +493,9 @@ async function mr() {
                 console.log(`\n可兑换${$timenum}次京豆:`)
                 for (let i = 0; i < $timenum; i++){
                   client.send(`{"msg":{"type":"action","args":{"benefit_id":${benefit.id}},"action":"to_exchange"}}`);
-                  await $.wait(10000)
+                  await $.wait(5000)
                   client.send(`{"msg":{"type":"action","args":{"source":1},"action":"get_user"}}`)
-                  await $.wait(10000);
+                  await $.wait(5000);
                 }
               }
               // console.log(`物品【${benefit.description}】需要${benefit.coins}美妆币，库存${benefit.stock}份`)
