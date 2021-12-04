@@ -11,6 +11,7 @@ const notify = $.isNode() ? require('./sendNotify') : '';
 console.log('已废弃,能不能用随缘!!!')
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 const WebSocket = require('ws');
+$.accountCheck = true;
 $.init = false;
 let cookiesArr = [], cookie = '', message;
 function oc(fn, defaultVal) {
@@ -47,7 +48,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
       $.isLogin = true;
       $.nickName = '';
       message = '';
-      $.accountCheck = true;
+      $.token = '';
       await TotalBean();
       console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
       if (!$.isLogin) {
